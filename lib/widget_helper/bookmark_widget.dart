@@ -25,14 +25,14 @@ class _BookmarkWidgetState extends State<BookmarkWidget> {
             widget.isBookmarked = !widget.isBookmarked;
           });
           if (widget.isBookmarked) {
-            removeMovie(widget.movie).then((value) {
+            saveMovie(widget.movie).then((value) {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Movie removed from bookmarks')));
+                  content: Text('Movie saved to bookmarks')));
             });
           } else {
-            saveMovie(widget.movie).then((value) {
+            removeMovie(widget.movie).then((value) {
               ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Movie saved to bookmarks')));
+                  const SnackBar(content: Text('Movie removed from bookmarks')));
             });
           }
         },
